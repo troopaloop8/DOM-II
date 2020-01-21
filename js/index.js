@@ -6,11 +6,14 @@ logoHeading.addEventListener("dblclick", () => {
   const curColor = logoHeading.style.color;
   console.log(curColor);
   if (curColor === "black") {
-    logoHeading.style.color = "blue";
+    // logoHeading.style.color = "blue";
     logoHeading.style.transition = "all 0.5s";
+    gsap.to(".logo-heading", {duration: 0.5, x: 300, color: "blue", backgroundColor: "gold", borderRadius: "5%", padding: "1.19%"})
   } else if (curColor === "blue") {
-    logoHeading.style.color = "black";
-    logoHeading.style.transition = "all 0.5s";
+    // logoHeading.style.color = "black";
+    
+    gsap.to(".logo-heading", {duration: 0.5, x: 0, color: "black", backgroundColor: "white", borderRadius: "0", padding: "1%", ease: "elastic"})
+   
   }
 });
 
@@ -18,11 +21,13 @@ const navLinks = document.querySelectorAll(".nav-link");
 
 const navLinkAddBorder = event => {
   event.target.style.borderBottom = "1px solid blue";
+  gsap.to(".nav-link", {duration: 3, rotation: 270});
   event.stopPropagation();
 };
 
 const navLinkRemoveBorder = event => {
   event.target.style.borderBottom = "none";
+  gsap.to(".nav-link", {duration: 3, rotation: 270});
   event.stopPropagation();
 };
 
@@ -121,3 +126,5 @@ paras.forEach((event) => {
 function copyMessage() {
     alert("You copied this image!!!")
 };
+
+gsap.from("img", {duration: 2, rotation: 720})
