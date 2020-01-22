@@ -23,12 +23,14 @@ const navLinkAddBorder = event => {
   event.target.style.borderBottom = "1px solid blue";
   gsap.to(".nav-link", {duration: 3, rotation: 270});
   event.stopPropagation();
+  
 };
 
 const navLinkRemoveBorder = event => {
   event.target.style.borderBottom = "none";
   gsap.to(".nav-link", {duration: 3, rotation: 270});
   event.stopPropagation();
+  
 };
 
 navLinks.forEach(nav => {
@@ -39,6 +41,10 @@ navLinks.forEach(nav => {
   nav.addEventListener("mouseleave", navLinkRemoveBorder);
 
 });
+
+navLinks.forEach(e => {
+    event.preventDefault();
+})
 
 const body = document.querySelector("body");
 body.addEventListener('click', (event) => {
